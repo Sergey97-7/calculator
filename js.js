@@ -24,7 +24,10 @@ container.addEventListener("click", function(event) {
     if (isNaN(-input.value)) err();
     else input.value = -input.value;
   }
-  if (target === ".") input.value += target;
+  if (target === ".") {
+    if(input.value.slice(input.value.length-1, input.value.length) !== ".")
+      input.value += target;
+  }
   if (target === "←") input.value = input.value.slice(0, input.value.length-1);
     if (target === "=") {
       let test = input.value.slice(input.value.length-1, input.value.length);
